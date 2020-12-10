@@ -1,0 +1,17 @@
+server {
+	listen 443 ssl default_server;
+	listen [::]:443 ssl default_server;
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
+    server_name _;
+	location / {
+	    proxy_pass http://127.0.0.1:4000;
+    }
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+    return 302 https://$server_name$request_uri;
+}
