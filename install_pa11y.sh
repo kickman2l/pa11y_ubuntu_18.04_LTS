@@ -39,5 +39,6 @@ sudo /bin/cp -r ../ssl-params.conf /etc/nginx/snippets/
 node index.js &> output.log &
 
 sudo systemctl enable nginx
+
 sudo nginx -s reload
 sudo systemctl start nginx
