@@ -3,6 +3,7 @@
 # install required packages 'package.list'
 sudo apt-get update -y
 sudo apt-get install -y $(cat package.list)
+sudo npm install forever -g
 
 # enabling and starting mongo
 sudo systemctl enable mongodb
@@ -16,7 +17,6 @@ sudo /bin/cp -r ./default /etc/nginx/sites-available/
 sudo /bin/cp -r ./self-signed.conf /etc/nginx/snippets/
 sudo /bin/cp -r ./ssl-params.conf /etc/nginx/snippets/
 sudo /bin/cp -r ./pa11y.service /etc/systemd/system/
-sudo npm install forever -g
 
 # checkout and install pa11y
 git clone https://github.com/pa11y/pa11y-dashboard.git
