@@ -20,9 +20,10 @@ sudo /bin/cp -r ../ssl-params.conf /etc/nginx/snippets/
 git clone https://github.com/pa11y/pa11y-dashboard.git
 cd ./pa11y-dashboard/ && npm install
 
-# start pa11y with logs in output.log
-node index.js &> output.log &
-
 #start nginx
 sudo nginx -s reload
 sudo systemctl start nginx
+
+sudo /bin/cp -r pa11y.service /etc/systemd/system/
+sudo systemctl enable pa11y
+sudo systemctl start pa11y
