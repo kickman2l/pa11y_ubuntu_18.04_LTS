@@ -12,9 +12,9 @@ sudo systemctl start mongodb
 sudo systemctl enable nginx
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
-sudo /bin/cp -r ../default /etc/nginx/sites-available/
-sudo /bin/cp -r ../self-signed.conf /etc/nginx/snippets/
-sudo /bin/cp -r ../ssl-params.conf /etc/nginx/snippets/
+sudo /bin/cp -r ./default /etc/nginx/sites-available/
+sudo /bin/cp -r ./self-signed.conf /etc/nginx/snippets/
+sudo /bin/cp -r ./ssl-params.conf /etc/nginx/snippets/
 
 # checkout and install pa11y
 git clone https://github.com/pa11y/pa11y-dashboard.git
@@ -24,6 +24,6 @@ cd ./pa11y-dashboard/ && npm install
 sudo nginx -s reload
 sudo systemctl start nginx
 
-sudo cp -r pa11y.service /etc/systemd/system/
+sudo /bin/cp -r ./pa11y.service /etc/systemd/system/
 sudo systemctl enable pa11y
 sudo systemctl start pa11y
