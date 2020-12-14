@@ -2,8 +2,10 @@
 Description=pa11y natera
 
 [Service]
+User=Ubuntu
+Group=Ubuntu
 Type=forking
-ExecStart=/usr/bin/node /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/index.js &> /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/output.log &
+ExecStart=/usr/bin/node /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/index.js
 ExecStop=/usr/bin/killall node
 Restart=on-failure
 
