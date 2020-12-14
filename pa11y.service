@@ -3,8 +3,8 @@ Description=pa11y natera
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/node /home/ubuntu/pa11y_ubuntu_18.04_LTS/index.js &> /home/ubuntu/pa11y_ubuntu_18.04_LTS/output.log &
-ExecStop=kill -9 $(ps aux | grep '\snode\s' | awk '{print $2}')
+ExecStart=/usr/bin/node /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/index.js &> /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/output.log &
+ExecStop=/usr/bin/killall node
 Restart=on-failure
 
 [Install]
