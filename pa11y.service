@@ -6,3 +6,6 @@ Type=forking
 ExecStart=/usr/bin/node /home/ubuntu/pa11y_ubuntu_18.04_LTS/index.js &> /home/ubuntu/pa11y_ubuntu_18.04_LTS/output.log &
 ExecStop=kill -9 $(ps aux | grep '\snode\s' | awk '{print $2}')
 Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -2,7 +2,7 @@
 
 # install required packages 'package.list'
 sudo apt-get update -y
-sudo apt-get install $(cat package.list)
+sudo apt-get install -y $(cat package.list)
 
 # enabling and starting mongo
 sudo systemctl enable mongodb
@@ -24,6 +24,6 @@ cd ./pa11y-dashboard/ && npm install
 sudo nginx -s reload
 sudo systemctl start nginx
 
-sudo /bin/cp -r pa11y.service /etc/systemd/system/
+sudo cp -r pa11y.service /etc/systemd/system/
 sudo systemctl enable pa11y
 sudo systemctl start pa11y
