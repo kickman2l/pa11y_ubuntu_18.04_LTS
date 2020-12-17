@@ -29,6 +29,6 @@ mkdir "/home/ubuntu/logs_backups"
 mkdir "/home/ubuntu/logs_backups/logs"
 mkdir "/home/ubuntu/logs_backups/backups"
 
-(crontab -l ; echo "* * * * * mongodump --host=127.0.0.1 --port=27017 --db=pa11y-webservice") | crontab -
+(crontab -l ; echo "* * * * * mongodump --host=127.0.0.1 --port=27017 --db=pa11y-webservice --out=/home/ubuntu/logs_backups/backups/") | crontab -
 
 forever start -al /home/ubuntu/logs_backups/logs/forever.log -ao /home/ubuntu/logs_backups/logs/out.log -ae /home/ubuntu/logs_backups/logs/err.log /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/index.js
