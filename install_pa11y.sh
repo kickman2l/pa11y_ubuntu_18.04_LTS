@@ -24,4 +24,11 @@ cd ./pa11y-dashboard/ && npm install
 #start nginx
 sudo nginx -s reload
 sudo systemctl start nginx
-forever start -al /home/ubuntu/forever.log -ao /home/ubuntu/out.log -ae /home/ubuntu/err.log /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/index.js
+
+mkdir "/home/ubuntu/logs_backups"
+mkdir "/home/ubuntu/logs_backups/logs"
+mkdir "/home/ubuntu/logs_backups/backups"
+
+(crontab -l ; echo "* * * * * mongodump --host=127.0.0.1 --port=27017 --db=pa11y-webservice") | crontab -
+
+forever start -al /home/ubuntu/logs_backups/logs/forever.log -ao /home/ubuntu/logs_backups/logs/out.log -ae /home/ubuntu/logs_backups/logs/err.log /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/index.js
