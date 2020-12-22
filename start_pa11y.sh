@@ -1,0 +1,1 @@
+forever start -al /home/ubuntu/logs_backups/logs/forever.log -ao /home/ubuntu/logs_backups/logs/out.log -ae /home/ubuntu/logs_backups/logs/err.log /home/ubuntu/pa11y_ubuntu_18.04_LTS/pa11y-dashboard/index.js
